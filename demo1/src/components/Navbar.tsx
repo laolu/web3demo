@@ -1,9 +1,9 @@
 "use client"
 
-import { ConnectButton } from "./ConnectButton"
 import { ThemeToggle } from "./ThemeToggle"
 import { Menu } from "lucide-react"
 import { useState } from "react"
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,8 +15,8 @@ export function Navbar() {
         <div className="hidden md:flex h-16 items-center px-4">
           <div className="text-xl font-bold">Web3 App</div>
           <div className="ml-auto flex items-center space-x-4">
+            <ConnectButton chainStatus="icon" showBalance={false} />
             <ThemeToggle />
-            <ConnectButton />
           </div>
         </div>
 
@@ -35,10 +35,10 @@ export function Navbar() {
           {isOpen && (
             <div className="border-t px-4 py-3 space-y-3">
               <div className="flex justify-center">
-                <ThemeToggle />
+                <ConnectButton chainStatus="icon" showBalance={false} />
               </div>
               <div className="flex justify-center">
-                <ConnectButton />
+                <ThemeToggle />
               </div>
             </div>
           )}
